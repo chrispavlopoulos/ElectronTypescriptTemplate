@@ -1,34 +1,66 @@
 {
-  "name": "phona",
+  "name": "exampletmpl",
   "version": "0.1.0",
+  "productName": "ExampleTmpl",
+  "homepage": ".",
+  "main": "build/dist/src/main/main.js",
   "private": true,
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "dev": "node dev.js"
+  },
   "dependencies": {
+    "@mdi/js": "^5.3.45",
+    "@mdi/react": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.14.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "babel": "^6.23.0",
+    "electron-is-dev": "^1.2.0",
+    "electron-json-storage": "^4.5.0",
+    "electron-localshortcut": "^3.2.1",
+    "electron-reload": "^2.0.0-alpha.1",
+    "mdi-react": "^7.3.0",
+    "mkdirp": "^1.0.4",
+    "path-browserify": "^1.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-router-dom": "^6.6.1",
+    "react-icons": "^4.3.1",
+    "react-loading": "^2.0.3",
+    "react-scripts": "^5.0.0",
+    "styled-components": "^5.1.1",
+    "typescript": "^4.9.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "concurrently": "^5.2.0",
+    "electron": "^12.0.0",
+    "electron-devtools-installer": "^3.2.0",
+    "wait-on": "^5.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "build": {
+    "extends": null,
+    "files": [
+      "build/**/*"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "directories": {
+      "buildResources": "assets"
+    }
   }
 }
