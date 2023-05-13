@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const ScImage = styled.img`
+const ScImage = styled.img<any>`
   width: 100%;
   height: 100%;
   object-fit: contain;
   user-select: none;
 
   transition: opacity 0.2s ease-in-out;
-  opacity: ${({ loadingImage }) => loadingImage ? 0 : 1};
+  opacity: ${({ loadingImage }: { loadingImage: boolean }) => loadingImage ? 0 : 1};
 `;
 
-const AsyncImage = ({ src }) => {
+const AsyncImage = ({ src }: { src: string }) => {
   const [loading, setLoading] = useState(true);
   const [image, setImage] = useState(null);
 

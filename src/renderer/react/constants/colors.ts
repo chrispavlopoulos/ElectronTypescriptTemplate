@@ -16,9 +16,9 @@ const Themes = [
     DarkTheme
 ];
 
-let Theme = DarkTheme;
+let Theme: any = DarkTheme;
 
-export const setTheme = (themeIndex) => {
+export const setTheme = (themeIndex: number) => {
     Theme = Themes[themeIndex];
 };
 

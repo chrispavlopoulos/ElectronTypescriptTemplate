@@ -18,7 +18,7 @@ const ScToolbar = styled.div`
     user-select: none;
     -moz-user-drag: none;
     -webkit-user-select: none;
-    ${({ contextMenuShowing }) => css`
+    ${({ contextMenuShowing }: { contextMenuShowing?: boolean }) => css`
       ${contextMenuShowing ? '' : '-webkit-app-region: drag;'}
     `}
 `
@@ -65,7 +65,7 @@ const WindowControlClose = styled(WindowControl)`
     }
 `
 
-const Toolbar = ({ contextMenuShowing }) => {
+const Toolbar = ({ contextMenuShowing }: { contextMenuShowing?: boolean }) => {
   return (
     <ScToolbar contextMenuShowing={contextMenuShowing}>
         <ToolbarTitle id="title">

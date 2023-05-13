@@ -12,9 +12,9 @@ const DimenThemes = [
     RoomyDimens,
 ];
 
-let Dimens = DefaultDimens;
+let Dimens: any = DefaultDimens;
 
-export const setDimenTheme = (themeIndex) => {
+export const setDimenTheme = (themeIndex: number) => {
     Dimens = DimenThemes[themeIndex];
 };
 

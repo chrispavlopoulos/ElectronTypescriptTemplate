@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import styled from 'styled-components';
 import Theme from "../../constants/colors";
 
-const ScInput = styled.input`
+const ScInput = styled.input<any>`
   height: 40px;
   font-size: 12px;
   background-color: rgba(75,75,75, 0.5);

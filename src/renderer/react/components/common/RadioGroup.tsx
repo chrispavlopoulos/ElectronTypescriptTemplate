@@ -17,7 +17,7 @@ const ScRadioCircle = styled.div`
     transition: background-color 200ms ease-in-out;
 `;
 
-const ScRadio = styled.div`
+const ScRadio = styled.div<any>`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -25,11 +25,11 @@ const ScRadio = styled.div`
     cursor: pointer;
 
     ${ScRadioCircle} {
-        background-color: ${({ selected }) => selected && Theme.primary};
-        border: ${({ selected }) => selected && '1px solid transparent'};
+        background-color: ${({ selected }: any) => selected && Theme.primary};
+        border: ${({ selected }: any) => selected && '1px solid transparent'};
     }
     &:hover > ${ScRadioCircle} {
-        background-color: ${({ selected }) => !selected && 'rgba(255,255,255,0.05)'};
+        background-color: ${({ selected }: any) => !selected && 'rgba(255,255,255,0.05)'};
     }
 `;
 
@@ -43,7 +43,11 @@ const ScRadioGroup = styled.div`
     }
 `;
 
-const RadioGroup = ({ options, selectedIndex = 0, onRadioSelected }) => {
+const RadioGroup = ({ options, selectedIndex = 0, onRadioSelected }: {
+    options: Array<string>,
+    selectedIndex: number,
+    onRadioSelected: (i: number) => void,
+}) => {
     return (
         <ScRadioGroup>
             {options.map((option, i) => (
@@ -58,7 +62,11 @@ const RadioGroup = ({ options, selectedIndex = 0, onRadioSelected }) => {
     );
 }
 
-const Radio = ({ title, selected, onRadioSelected }) => {
+const Radio = ({ title, selected, onRadioSelected }: {
+    title: string,
+    selected: boolean,
+    onRadioSelected: () => void,
+}) => {
     return (
         <ScRadio selected={selected} onClick={onRadioSelected}>
             <ScRadioTitle>{title}</ScRadioTitle>

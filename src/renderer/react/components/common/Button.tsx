@@ -20,7 +20,7 @@ const ScButton = styled.button`
     }
 `;
 
-const Button = ({ children, ...rest}) => {
+const Button = ({ children, ...rest}: any) => {
     return (
         <ScButton {...rest}>{children}</ScButton>
     );

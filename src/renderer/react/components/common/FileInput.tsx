@@ -39,7 +39,12 @@ const Wrapper = styled.div`
   }
 `;
 
-const FileInput = ({ value = {}, onFileChanged = () => {}}) => {
+interface File {
+  name?: string;
+  path?: string;
+}
+
+const FileInput = ({ value = {}, onFileChanged = () => {}}: { value: File, onFileChanged: () => void}) => {
   const {
     getRootProps,
     getInputProps,
@@ -53,10 +58,7 @@ const FileInput = ({ value = {}, onFileChanged = () => {}}) => {
     console.log(acceptedFiles);
   }
 
-  const {
-    name = '',
-    path = '',
-  } = value;
+  const { name = '' }: File = value;
 
   return (
     <Wrapper {...getRootProps()}>
