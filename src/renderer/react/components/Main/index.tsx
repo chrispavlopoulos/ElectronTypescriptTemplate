@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setEnabled } from '../../../redux/Settings/settings.actions';
 import styled from 'styled-components';
 
 import Theme from '../../constants/colors';
@@ -38,6 +40,9 @@ const ContentWrapper = styled.div`
 `;
 
 const App = () => {
+    const dispatch = useDispatch();
+    const enabled = useSelector((state: any) => state.settings.enabled);
+
     return (
         <WindowWrapper>
             <AppWrapper>
@@ -45,8 +50,10 @@ const App = () => {
                 
                 <ContentCenterer>
                     <ContentWrapper>
-                        <Button>
-                            Test
+                        <Button
+                            onClick={() => dispatch(setEnabled(!enabled))}
+                        >
+                            {`${enabled}`}
                         </Button>
                     </ContentWrapper>
                 </ContentCenterer>
