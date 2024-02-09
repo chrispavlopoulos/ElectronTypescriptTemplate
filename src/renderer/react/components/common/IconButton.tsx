@@ -10,69 +10,81 @@ const Wrapper = styled.div<any>`
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
-    margin-left: ${({ shovedRight }: any) => shovedRight ? 'auto' : 0};
+    margin-left: ${({ shovedRight }: any) => (shovedRight ? 'auto' : 0)};
     font-size: ${({ size }: any) => size || '16'}px;
 
     &:hover {
-      ${({ soft, disabled }: any) => !soft && !disabled ? css`
-        background-color: rgba(255, 255, 255, 0.2);
-      ` : null}
+        ${({ soft, disabled }: any) =>
+            !soft && !disabled
+                ? css`
+                      background-color: rgba(255, 255, 255, 0.2);
+                  `
+                : null}
     }
     &:active {
-      ${({ soft, disabled }: any) => !soft && !disabled ? css`
-        background-color: rgba(255, 255, 255, 0.4);
-      ` : null}
+        ${({ soft, disabled }: any) =>
+            !soft && !disabled
+                ? css`
+                      background-color: rgba(255, 255, 255, 0.4);
+                  `
+                : null}
     }
 
     > svg {
-      ${({ soft, disabled }: any) => soft || disabled ? css`
-        color: gray;
-        transition: color 0.2s ease-in-out;
-      ` : null}
+        ${({ soft, disabled }: any) =>
+            soft || disabled
+                ? css`
+                      color: gray;
+                      transition: color 0.2s ease-in-out;
+                  `
+                : null}
     }
 
     &:hover > svg {
-      ${({ soft, hoverColor, disabled }: any) => soft && !disabled ? css`
-        color: ${hoverColor || 'white'};
-      ` : null}
+        ${({ soft, hoverColor, disabled }: any) =>
+            soft && !disabled
+                ? css`
+                      color: ${hoverColor || 'white'};
+                  `
+                : null}
     }
 `;
 
-const IconButton = ({ 
-  children, 
-  shovedRight, 
-  soft, 
-  hoverColor, 
-  disabled,
-  size=16,
-  onClick = () => {},
-  ...rest 
+const IconButton = ({
+    children,
+    shovedRight,
+    soft,
+    hoverColor,
+    disabled,
+    size = 16,
+    onClick = () => {},
+    ...rest
 }: {
-  children: any,
-  shovedRight: boolean, 
-  soft: boolean, 
-  hoverColor: string,
-  disabled: boolean,
-  size: number,
-  onClick: (e: Event) => void,
+    children: any;
+    shovedRight: boolean;
+    soft: boolean;
+    hoverColor: string;
+    disabled: boolean;
+    size: number;
+    onClick: (e: Event) => void;
 }) => {
-  return (
-    <Wrapper 
-      {...rest} 
-      size={size}
-      shovedRight={shovedRight} 
-      soft={soft} 
-      hoverColor={hoverColor} 
-      disabled={disabled} 
-      onClick={(e: Event) => {
-        if (!disabled) {
-          onClick(e);
-        }
-      }}
-    >
-      {children}
-    </Wrapper>
-  )
-}
+    return (
+        <Wrapper
+            {...rest}
+            size={size}
+            shovedRight={shovedRight}
+            soft={soft}
+            hoverColor={hoverColor}
+            disabled={disabled}
+            onClick={(e: Event) => {
+                if (!disabled) {
+                    onClick(e);
+                }
+            }}
+        >
+            {children}
+        </Wrapper>
+    );
+};
 
 export default IconButton;

@@ -19,26 +19,26 @@ const ScToolbar = styled.div`
     -moz-user-drag: none;
     -webkit-user-select: none;
     ${({ contextMenuShowing }: { contextMenuShowing?: boolean }) => css`
-      ${contextMenuShowing ? '' : '-webkit-app-region: drag;'}
+        ${contextMenuShowing ? '' : '-webkit-app-region: drag;'}
     `}
-`
+`;
 
 const ToolbarTitle = styled.div`
     font-size: 16px;
     margin-left: ${dimens.spacerS}px;
     font-family: 'Dancing Script', cursive;
     letter-spacing: 1.5px;
-`
+`;
 
 const WindowControlWrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: auto;
-    font-family: "Segoe UI";
+    font-family: 'Segoe UI';
     font-size: 10px;
     -webkit-app-region: no-drag;
-`
+`;
 
 const WindowControl = styled.div`
     display: flex;
@@ -57,45 +57,43 @@ const WindowControl = styled.div`
         height: 10px;
         width: 10px;
     }
-`
+`;
 
 const WindowControlClose = styled(WindowControl)`
     &:hover {
-        background-color: #E81123;
+        background-color: #e81123;
     }
-`
+`;
 
 const Toolbar = ({ contextMenuShowing }: { contextMenuShowing?: boolean }) => {
-  return (
-    <ScToolbar contextMenuShowing={contextMenuShowing}>
-        <ToolbarTitle id="title">
-          {APP_NAME}
-        </ToolbarTitle>
+    return (
+        <ScToolbar contextMenuShowing={contextMenuShowing}>
+            <ToolbarTitle id="title">{APP_NAME}</ToolbarTitle>
 
-        <WindowControlWrapper>
-            <WindowControl 
-              id="window_min" 
-              onClick={() => window.onMinimize()}
-            >
-              <img src="./images/min.png" alt="minimize" />
-            </WindowControl>
-            
-            <WindowControl 
-              id="window_max" 
-              onClick={() => window.onMaximize()}
-            >
-              <img src="./images/max.png" alt="maximize" />
-            </WindowControl>
+            <WindowControlWrapper>
+                <WindowControl
+                    id="window_min"
+                    onClick={() => window.onMinimize()}
+                >
+                    <img src="./images/min.png" alt="minimize" />
+                </WindowControl>
 
-            <WindowControlClose 
-              id="window_close" 
-              onClick={() => window.onClose()}
-            >
-              <img src="./images/close.png" alt="exit" />
-            </WindowControlClose>
-        </WindowControlWrapper>
-    </ScToolbar>
-  );
+                <WindowControl
+                    id="window_max"
+                    onClick={() => window.onMaximize()}
+                >
+                    <img src="./images/max.png" alt="maximize" />
+                </WindowControl>
+
+                <WindowControlClose
+                    id="window_close"
+                    onClick={() => window.onClose()}
+                >
+                    <img src="./images/close.png" alt="exit" />
+                </WindowControlClose>
+            </WindowControlWrapper>
+        </ScToolbar>
+    );
 };
 
 export default Toolbar;

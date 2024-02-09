@@ -20,10 +20,8 @@ const ScButton = styled.button`
     }
 `;
 
-const Button = ({ children, ...rest}: any) => {
-    return (
-        <ScButton {...rest}>{children}</ScButton>
-    );
-}
+const Button = ({ children, ...rest }: any) => {
+    return <ScButton {...rest}>{children}</ScButton>;
+};
 
 export default Button;

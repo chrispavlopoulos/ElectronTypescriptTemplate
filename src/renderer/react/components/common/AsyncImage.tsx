@@ -2,32 +2,33 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const ScImage = styled.img<any>`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  user-select: none;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
 
-  transition: opacity 0.2s ease-in-out;
-  opacity: ${({ loadingImage }: { loadingImage: boolean }) => loadingImage ? 0 : 1};
+    transition: opacity 0.2s ease-in-out;
+    opacity: ${({ loadingImage }: { loadingImage: boolean }) =>
+        loadingImage ? 0 : 1};
 `;
 
 const AsyncImage = ({ src }: { src: string }) => {
-  const [loading, setLoading] = useState(true);
-  const [image, setImage] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [image, setImage] = useState(null);
 
-  useEffect(() => {
-    // const loadImage = async () => {
-    //   const imageSrc = await require(`../../impl/${src}`);
-    //   setImage(imageSrc);
+    useEffect(() => {
+        // const loadImage = async () => {
+        //   const imageSrc = await require(`../../impl/${src}`);
+        //   setImage(imageSrc);
 
-    //   setLoading(false);
-    // };
+        //   setLoading(false);
+        // };
 
-    // loadImage();
-    setLoading(true);
-  }, [src])
+        // loadImage();
+        setLoading(true);
+    }, [src]);
 
-  return <ScImage src={image} loadingImage={loading} />;
+    return <ScImage src={image} loadingImage={loading} />;
 };
 
 export default AsyncImage;

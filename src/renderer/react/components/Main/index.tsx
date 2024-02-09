@@ -20,11 +20,13 @@ const AppWrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 100%;
+    flex: 1;
+    overflow-y: hidden;
     background-color: ${Theme.bg};
 `;
 const ContentCenterer = styled.div`
-    height: 100%;
+    flex: 1;
+    overflow-y: hidden;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -47,12 +49,10 @@ const App = () => {
         <WindowWrapper>
             <AppWrapper>
                 <Toolbar />
-                
+
                 <ContentCenterer>
                     <ContentWrapper>
-                        <Button
-                            onClick={() => dispatch(setEnabled(!enabled))}
-                        >
+                        <Button onClick={() => dispatch(setEnabled(!enabled))}>
                             {`${enabled}`}
                         </Button>
                     </ContentWrapper>
@@ -60,6 +60,6 @@ const App = () => {
             </AppWrapper>
         </WindowWrapper>
     );
-}
+};
 
 export default App;
